@@ -13,7 +13,13 @@
         />
 
         <q-toolbar-title>
-          Quasar App
+           <div class="q-px-lg q-pt-xl q-mb-md" >
+            <div class = "text-h3">Afazeres </div>
+            <div class = "text-subtitle"> Segunda-Feira 20 de Junho </div>
+            
+          </div>
+          <q-img  src="../assets/afazer.jpg"
+          class="header-image absolute-top" />
         </q-toolbar-title>
 
         <div>Quasar v{{ $q.version }}</div>
@@ -118,3 +124,13 @@ export default defineComponent({
   }
 })
 </script>
+
+<style lang="scss">
+.header-image{
+  height: 100%;
+  z-index: -1;
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+</style>
