@@ -1,7 +1,7 @@
 
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated>
+    <q-header>
       <q-toolbar>
         <q-btn
           flat
@@ -18,7 +18,7 @@
             <div class = "text-subtitle"> Segunda-Feira 20 de Junho </div>
             
           </div>
-          <q-img  src="../assets/afazer.jpg"
+          <q-img  src="../assets/afazer.jpeg"
           class="header-image absolute-top" />
         </q-toolbar-title>
 
@@ -30,12 +30,12 @@
       v-model="leftDrawerOpen"
       show-if-above
       bordered
-      class="bg-grey-1"
+    :width="250"
+    :breakpoint="600"
     >
       <q-list>
         <q-item-label
           header
-          class="text-grey-8"
         >
           Essential Links
         </q-item-label>
@@ -46,63 +46,63 @@
           v-bind="link"
         />
       </q-list>
+<q-scroll-area style="height: calc(100% - 192px); margin-top: 152px; border-right: 1px solid #ddd">
+          <q-list padding>
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="list" />
+              </q-item-section>
+
+              <q-item-section>
+                Afazeres
+              </q-item-section>
+            </q-item>
+
+    
+            <q-item clickable v-ripple>
+              <q-item-section avatar>
+                <q-icon name="help" />
+              </q-item-section>
+
+              <q-item-section>
+                Ajuda
+              </q-item-section>
+            </q-item>
+
+            
+          </q-list>
+        </q-scroll-area>
+
+        <q-img class="absolute-top" src="../assets/afazer.jpeg" style="height: 195px">
+          <div class="absolute-bottom bg-transparent">
+            <q-avatar size="56px" class="q-mb-sm">
+              <img src="../assets/hidell.jpg">
+            </q-avatar>
+            <div class="text-weight-bold">Hidelgio Novela</div>
+            <div>@hidelgio_novela</div>
+          </div>
+        </q-img>
+
+      
     </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <keep-alive>    
+          <router-view />
+     </keep-alive>
+
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
+import { computed, defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
+import{date} from 'quasar'
 
-const linksList = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
-  }
-];
+const linksList = [];
 
-import { defineComponent, ref } from 'vue'
+// import { defineComponent, ref } from 'vue'
 
 export default defineComponent({
   name: 'MainLayout',
@@ -129,7 +129,7 @@ export default defineComponent({
 .header-image{
   height: 100%;
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0.4;
   filter: grayscale(100%);
 }
 
