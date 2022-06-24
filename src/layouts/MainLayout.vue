@@ -73,9 +73,9 @@
         src="../assets/afazer.jpeg"
         style="height: 184px"
       >
-        <div class="absolute-bottom bg-transparent">
+        <div class="absolute-bottom  text-primary" style="top:0px;">
           <q-avatar size="59px" class="q-mb-sm">
-            <img src="../assets/hidell.jpg" />
+            <img src="../assets/hidel1.jpg" />
           </q-avatar>
           <div class="text-weight-bold">Hidelgio Novela</div>
           <div>@hidelgio_novela</div>

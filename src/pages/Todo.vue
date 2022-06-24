@@ -1,6 +1,6 @@
 <template>
   <q-page class=" bg-grey-3 column">
- 
+    <!-- <div class="row q-pa-sm bg-primary"> Criar um afazer </div> -->
     <q-list 
     class="bg-white" bordered
     separator borderd>
@@ -61,7 +61,16 @@ export default defineComponent({
   },
   methods : { 
       deleteTask(index) {
+      this.$q.dialog({
+        title: 'Confirm',
+        message: 'Realmente Deseja apagar!',
+        cancel: true,
+        persistent: true
+      }).onOk(() => {
         this.tasks.splice(index, 1)
+        this.$q.notify('Afazer apagado')
+      })
+
       }
     }
 });
