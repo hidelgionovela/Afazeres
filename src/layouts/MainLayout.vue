@@ -6,22 +6,21 @@
           flat
           dense
           round
+           @click="toggleLeftDrawer "
           icon="menu"
           aria-label="Menu"
-          @click="toggleLeftDrawer"
         />
 
         <q-toolbar-title>
-          <div style="line-height: 5.0rem" class="q-px-lg q-pt-xl q-mb-md">
-            <div class="text-h4">Afazeres</div>
-            <div class="text-subtitle"> {{ todaysDate }} </div>
+          <div style="line-height: 5rem" class="q-px-lg q-pt-xl q-mb-md">
+            <div class="text-h4">Tarefas</div>
+            <div class="text-subtitle">{{ todaysDate }}</div>
           </div>
           <q-img
             src="../assets/afazer.jpeg"
             class="header-image absolute-top"
           />
         </q-toolbar-title>
-
         <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
@@ -42,6 +41,8 @@
           v-bind="link"
         />
       </q-list>
+
+      <!-- inicio area lateral do menu -->
       <q-scroll-area
         style="
           height: calc(90% - 300px);
@@ -55,7 +56,7 @@
               <q-icon name="list" />
             </q-item-section>
 
-            <q-item-section> Afazeres </q-item-section>
+            <q-item-section> Tarefas </q-item-section>
           </q-item>
 
           <q-item to="/help" exact clickable v-ripple>
@@ -67,18 +68,19 @@
           </q-item>
         </q-list>
       </q-scroll-area>
+      <!-- fim area lateral do menu -->
 
       <q-img
         class="absolute-top"
         src="../assets/afazer.jpeg"
         style="height: 184px"
       >
-        <div class="absolute-bottom  text-primary" style="top:0px;">
+        <div class="absolute-bottom text-primary" style="top: 0px">
           <q-avatar size="59px" class="q-mb-sm">
             <img src="../assets/hidel1.jpg" />
           </q-avatar>
-          <div class="text-weight-bold">Hidelgio Novela</div>
-          <div>@hidelgio_novela</div>
+          <div class="text-weight-bold">Hidélgio Novela</div>
+          <div>@hidell_9la</div>
         </div>
       </q-img>
     </q-drawer>
@@ -118,13 +120,12 @@ export default defineComponent({
       },
     };
   },
-  computed:{
+  computed: {
     todaysDate() {
-      let timeStamp = Date.now()
-      return date.formatDate(timeStamp, 'dddd DD of MMMM YYYY')
-    }
-  }
-
+      let timeStamp = Date.now();
+      return date.formatDate(timeStamp, "dddd DD of MMMM YYYY");
+    },
+  },
 });
 </script>
 
