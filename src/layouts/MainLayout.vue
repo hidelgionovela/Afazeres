@@ -12,9 +12,9 @@
         />
 
         <q-toolbar-title>
-          <div class="q-px-lg q-pt-xl q-mb-md">
-            <div class="text-h3">Afazeres</div>
-            <div class="text-subtitle">Segunda-Feira 20 de Junho</div>
+          <div style="line-height: 5.0rem" class="q-px-lg q-pt-xl q-mb-md">
+            <div class="text-h4">Afazeres</div>
+            <div class="text-subtitle"> {{ todaysDate }} </div>
           </div>
           <q-img
             src="../assets/afazer.jpeg"
@@ -22,7 +22,7 @@
           />
         </q-toolbar-title>
 
-        <div>Quasar v{{ $q.version }}</div>
+        <!-- <div>Quasar v{{ $q.version }}</div> -->
       </q-toolbar>
     </q-header>
 
@@ -44,13 +44,13 @@
       </q-list>
       <q-scroll-area
         style="
-          height: calc(100% - 192px);
-          margin-top: 152px;
+          height: calc(90% - 300px);
+          margin-top: 130px;
           border-right: 1px solid #ddd;
         "
       >
         <q-list padding>
-          <q-item clickable v-ripple>
+          <q-item to="/" exact clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="list" />
             </q-item-section>
@@ -58,7 +58,7 @@
             <q-item-section> Afazeres </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item to="/help" exact clickable v-ripple>
             <q-item-section avatar>
               <q-icon name="help" />
             </q-item-section>
@@ -71,10 +71,10 @@
       <q-img
         class="absolute-top"
         src="../assets/afazer.jpeg"
-        style="height: 195px"
+        style="height: 184px"
       >
         <div class="absolute-bottom bg-transparent">
-          <q-avatar size="56px" class="q-mb-sm">
+          <q-avatar size="59px" class="q-mb-sm">
             <img src="../assets/hidell.jpg" />
           </q-avatar>
           <div class="text-weight-bold">Hidelgio Novela</div>
@@ -118,6 +118,13 @@ export default defineComponent({
       },
     };
   },
+  computed:{
+    todaysDate() {
+      let timeStamp = Date.now()
+      return date.formatDate(timeStamp, 'dddd DD of MMMM YYYY')
+    }
+  }
+
 });
 </script>
 
@@ -125,7 +132,7 @@ export default defineComponent({
 .header-image {
   height: 100%;
   z-index: -1;
-  opacity: 0.4;
+  opacity: 0.6;
   filter: grayscale(100%);
 }
 </style>
